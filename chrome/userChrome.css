@@ -1,0 +1,421 @@
+:root {
+	--menu-bg: #2A2A2A;
+	--menu-bg--inverted: #D5D5D5;
+	--menu-text: #FFFFFF;
+	--menu-text-inverted: #000000;
+	--menu-text-disabled-inverted: #BBBBBB;
+	--menu-filter: invert(90%) hue-rotate(180deg) brightness(120%) saturate(120%);
+	--menu-unfilter-image: invert(90%) hue-rotate(180deg) saturate(120%);
+	--full-invert-filter: invert(100%) hue-rotate(180deg);
+	
+	--bg-textbox: #010101;
+	
+	--tree-bg: #1E1E1E;
+	--tree-header: #2D2D2D;
+	
+	--twisty-fill: #AAAAAA;
+	
+	--hover-blue: #2c618e;
+	--selected-blue: #0078d7;
+	--hover-border-blue: #7bc3ff;
+	--hover-grey: #555555;
+	--selected-grey: #1F2023;
+	
+	--scrollbar-filter: invert(100%);
+	--scrollbar-unfilter: invert(100%);
+}
+
+/*
+  General Styles
+*/
+window, page, dialog, wizard, prefpane {
+	background: var(--menu-bg) !important;
+	color: var(--menu-text) !important;
+}
+.wizard-header{
+	background: var(--menu-bg) !important;
+	color: var(--menu-text) !important;
+}
+tabpanels{
+	-moz-appearance: none !important;
+ 	background: var(--menu-bg) !important;
+ 	color: var(--menu-text) !important;
+}
+caption{
+	-moz-appearance: none !important;
+	background: var(--menu-bg) !important;
+	color: var(--menu-text) !important;
+}
+button, menulist, .zotero-clicky-minus, .zotero-clicky-plus, progressmeter{
+	filter: invert(100%) hue-rotate(180deg);
+}
+textbox, textarea, filefield, input, checkbox image, radiogroup image, select, listbox {
+/* interesting to investigate whether this will work...	 */
+	/* 	-moz-appearance: none !important; */
+	/*! color: var(--menu-text) !important; */
+	filter: invert(88.3%) hue-rotate(180deg);
+}
+dropmarker{
+	filter: invert(100%) brightness(120%);
+}
+menulist dropmarker{
+	filter: none;
+}
+
+.virtualized-table{
+	background: var(--tree-bg);
+	color: var(--menu-text); 
+}
+.virtualized-table .row:hover{
+	background: var(--hover-blue) !important;
+	border: var(--hover-border-blue) 1px solid !important;
+}
+.virtualized-table .row.selected{
+	background: var(--selected-blue) !important;
+}
+.virtualized-table-header{
+	background: var(--tree-header) !important;
+	color: var(--menu-text);
+	border-bottom: 1px solid #cccccc;
+}
+.virtualized-table-header .cell:hover{
+	background: var(--hover-grey) !important;
+}
+/* Can't easily select the scrollbar for a table, only as a child of .virtualized-table-body */
+.virtualized-table-body {
+	filter: var(--scrollbar-filter) !important;
+}
+.virtualized-table-body > div{
+	filter: var(--scrollbar-unfilter) !important;
+}
+.virtualized-table-header .icon-downchevron{
+	filter: var(--full-invert-filter)
+}
+tab, .tab{
+	-moz-appearance: none !important;
+	background: var(--bg-base) !important;
+	color: var(--menu-text) !important;
+}
+tab:hover:not([disabled=true]), .tab:hover:not(disabled){
+	background: var(--hover-grey) !important;
+}
+tab[selected="true"], .tab.selected{
+	background: var(--selected-grey) !important;
+	border-top: 3px solid var(--selected-blue) !important;
+}
+.tab .icon{
+	filter: invert(0.9);
+}
+.twisty svg{
+	fill: var(--twisty-fill) !important;
+}
+.zotero-clicky:not(.zotero-field-toggle):not(.zotero-clicky-plus):not(.zotero-clicky-minus):not([disabled=true]):not(.disabled):hover {
+	background: var(--hover-blue) !important;
+	border: 1px solid rgb(109, 149, 224);
+}
+.zotero-clicky:not([disabled=true]):not(.disabled):active, .zotero-clicky[selected="true"], .zotero-clicky.selected {
+	color: white;
+	background: var(--selected-blue) !important;
+}
+.zotero-clicky.disabled, .zotero-clicky[disabled=true]{
+	opacity: 0.4 !important;
+}
+
+/* 
+  Navigation bar (File, Edit menu...) 
+*/
+#navigator-toolbox{
+	background: var(--menu-bg);
+	color: var(--menu-text);
+}
+/* inverting filter hack to style elements I couldn't access otherwise */
+menupopup {
+	filter: var(--menu-filter);
+}
+menupopup image {
+	filter: var(--menu-unfilter-image);
+}
+menubar > menu {
+	color: var(--menu-text);
+}
+menupopup menuitem:not([disabled=true]) {
+	color: var(--menu-text-inverted)
+}
+menupopup menuitem[disabled=true] {
+	color: var(--menu-text-disabled-inverted)
+}
+toolbox {
+	-moz-appearance: none !important;
+	background: var(--menu-bg) !important;
+	color: var(--menu-text) !important;
+}
+#zotero-lookup-panel #zotero-lookup-textbox, #zotero-lookup-panel #zotero-lookup-multiline-textbox,
+#zotero-lookup-panel .textbox-input, #zotero-lookup-panel .textbox-textarea,
+#zotero-lookup-buttons button{
+	filter: none;
+}
+#zotero-tb-search input{
+	filter: none;
+}
+/* #zotero-lookup-panel .textbox-input{
+	filter: invert(100%);
+} */
+
+/*
+  Zotero toolbar (New collection, new library, new item buttons)
+*/
+#zotero-toolbar{
+	border: 0px !important;
+	background: var(--menu-bg) !important;
+	color: var(--menu-text) !important;
+}
+/* Invert the "All Field & Tags" search bar */
+#zotero-tb-search{
+	filter: var(--menu-filter);
+}
+#zotero-lookup-panel{
+	filter: invert(85%) hue-rotate(180deg) brightness(120%);
+}
+/* Fix this -- only styles tab tooltips, not menu ones */
+tooltip {
+	filter: invert(100%) !important;
+}
+
+
+/*
+  Zotero Collections Pane (My Library, ...)
+*/
+.tag-selector-list-container {
+	background: var(--tree-bg) !important;
+	color: var(--menu-text); 
+}
+.tag-selector-item {
+	background: var(--tree-bg) !important;
+	color: var(--menu-text);
+}
+/* Can't easily select the scrollbar, only as a child of .tag-selector-list */
+.tag-selector-list{
+	filter: var(--scrollbar-filter) !important;
+}
+.tag-selector-list > div{
+	filter: var(--scrollbar-unfilter) !important;
+}
+.tag-selector-list-container > div > div{
+	padding-bottom: 10px;
+	padding-right: 10px;
+}
+#color-picker, #color-picker panel {
+	background: var(--menu-bg) !important;
+}
+#zotero-collections-splitter{
+	display: none;
+}
+
+/*
+  Zotero Items Pane (main section in the middle)
+*/
+.zotero-item-pane-content{
+	background: var(--menu-bg) !important;
+}
+/* Need this for when the screen is blank when clicking a new collection */
+#zotero-items-tree {
+	background: var(--menu-bg) !important;
+	color: var(--menu-text) !important;
+}
+
+
+
+/*
+  Zotero Item Pane (details about the selected item)
+*/
+/* When no item is selected */
+#zotero-item-pane, #zotero-item-pane-content {
+	background: var(--items-bg);
+  color: var(--menu-text);
+}
+.creator-type-label > image{
+	filter: invert(100%);
+}
+
+.tags-box-list .tag .editable .input{
+	filter: var(--full-invert-filter);
+}
+/* Invert the suggestions text back to white */
+.tags-box-list .tag .editable ul[role=listbox] li[role=option]{
+	filter: var(--full-invert-filter);
+}
+/* Need this ugly hack to select the scrollbar within the text area, eg. a long abstract */
+#zotero-view-item textbox{
+	filter: none;
+	-moz-appearance: none !important;
+	background: #151515 !important;
+	color: var(--menu-text) !important;
+}
+#zotero-view-item textbox input, #zotero-view-item textbox textarea{
+	filter: invert(1) hue-rotate(180deg) !important;
+	background: #E5E5E5 !important;
+	color: black !important;
+}
+#zotero-items-splitter{
+	display: none;
+}
+
+
+/* 
+  Zotero Note Editor
+*/
+/* Can only access with a filter - inside an iframe */
+zoteronoteeditor {
+	filter: var(--menu-filter);
+}
+zoteronoteeditor hbox{
+	filter: var(--menu-filter);
+}
+
+/*
+  Cita - Citations menu
+*/
+#citations-pane .citations-box-list-container button, #citations-pane .citations-box-footer button, #citation-editor .pid-list button{
+  filter: none;
+}
+#citations-pane button[title="Remove"]{
+	filter: invert(100%) hue-rotate(180deg);
+	border: 0px !important;
+}
+
+/*
+  Preferences Menu
+*/
+.prefWindow-dlgbuttons{
+	background: var(--menu-bg) !important;
+}
+.paneSelector{
+	background: var(--menu-bg) !important;
+	color: var(--menu-text) !important;
+}
+.paneSelector image{
+	filter: none;
+}
+prefpane textbox{
+	color: white !important;
+}
+.paneSelector radio{
+	-moz-appearance: none !important;
+/* 	background: var(--bg-base) !important; */
+	color: var(--menu-text) !important;
+}
+.paneSelector radio:hover:not([disabled=true]){
+	background: var(--hover-grey) !important;
+}
+.paneSelector radio[selected="true"]{
+	background: var(--selected-grey) !important;
+}
+
+/*
+  Create Report from Item
+*/
+#my-browser {
+	filter: invert(88.3%) hue-rotate(180deg);
+}
+
+/*
+  Help -> About
+*/
+#aboutcontent {
+	background: var(--menu-bg) !important;
+}
+
+/*
+  Help -> Report Error
+*/
+#zotero-error-report textarea {
+	color: var(--menu-text) !important;
+}
+
+/*
+  Tools -> RTF Scan
+*/
+#zotero-rtfScan textbox{
+	color: var(--menu-text) !important;
+}
+
+/*
+  New (sub)Collection
+*/
+#loginTextbox{
+	color: var(--menu-text) !important;
+}
+
+/*
+  Addons menu
+*/
+/* #addons-page .main-content richlistitem{
+	background-image: radial-gradient(at 50% 0%, #333 0%, transparent 75%) !important;
+	color: white !important;
+}
+#addons-page #category-box, #addons-page .main-content{
+	filter: var(--full-invert-filter);
+	background: black;
+}
+#addons-page #header-utils-btn{
+	filter: var(--full-invert-filter);
+}
+#addons-page #detail-view{
+	background-image: radial-gradient(at 50% 0%, #333 0%, transparent 75%) !important;
+}
+#addons-page .detail-view-container{
+	color: white !important;
+}
+#addons-page .detail-view-container #detail-rows row{
+	text-shadow: none !important;
+}
+#addons-page .main-content richlistitem[selected]{
+	background-color: black !important;
+	background-image: radial-gradient(at 50% 0%, #999 0%, transparent 75%) !important;
+}
+#addons-page #category-box richlistitem:not([selected]){
+	color: #666 !important;
+}
+#addons-page #category-box richlistitem:hover{
+	background: #222 !important;
+}
+#addons-page .main-content #updates-view .alert{
+	background: black !important;
+	color: white !important;
+} */
+
+
+/*
+  PDF viewer
+*/
+/*
+  The following line is commented, in order to keep the PDFs unchanged.
+*/
+/*
+.reader{
+	filter: var(--menu-filter) !important;
+}
+*/
+#zotero-context-toolbar-extension, #zotero-tab-toolbar{
+	background: var(--menu-bg) !important;
+	border-bottom: 1px solid #6F6F6F;
+}
+.zotero-context-notes-list, .note-row{
+	background: var(--menu-bg) !important;
+}
+.notes-list-container, #item-box{
+	filter: var(--scrollbar-filter) !important;
+	background: var(--menu-bg-inverted) !important;
+}
+.notes-list-container > div, #item-box > box{
+	filter: var(--scrollbar-unfilter) !important;
+}
+#zotero-context-splitter{
+	background: var(--menu-bg) !important;
+}
+#zotero-context-splitter grippy {
+	filter: invert(1);
+}
+#item-box{
+	filter: invert(1);
+}
