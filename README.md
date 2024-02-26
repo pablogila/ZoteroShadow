@@ -3,6 +3,8 @@ A dark theme for the Zotero reference manager, with the exception of the PDF vie
 
 Zotero Shadow is intended for Windows. It may run on Linux, although it is not supported and may display minor glitches. For Linux, it is recommended to use the Zotero Flatpak version, which already includes a dark mode.  
 
+For additional tips & tricks for Zotero, check [zotero4dummies](https://github.com/pablogila/zotero4dummies).  
+
 ## Installation
 Copy the `chrome` folder into your Zotero profile directory
 * On Windows  
