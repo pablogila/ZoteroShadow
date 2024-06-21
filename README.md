@@ -14,3 +14,7 @@ Copy the `chrome` folder into your Zotero profile directory
 
 ![overview1](images/screenshot1.png)
 ![overview2](images/screenshot2.png)
+
+## Contribution
+I used and loved Zotero Shadow in my Windows days. Now that I've switched to Linux, I no longer need it, so I haven't touched the code since. But if you think the code is worth improving, please do not hesitate to git-merge if you think it will benefit everyone: D  
+
